@@ -1,6 +1,9 @@
+
+import java.util.*;
+
 public class MergeSort {
 
-    public int[] mergeSort(int[] arr)
+    public void mergeSort(int[] arr)
     {
         //inductive step, continue breaking array into smaller sub arrays
         int[] left = Arrays.copyOfRange(arr, 0, arr.length / 2); //exclusive
@@ -16,7 +19,6 @@ public class MergeSort {
         //unwrap call, sorting arr reference location by merging every sub array pair created --
         // --until we reach our original left and right sub array in the front of our stack
         merge(arr, left,right);
-        return arr;
     }
 
     public void merge(int[] arr, int[] left, int[] right) {
@@ -44,5 +46,6 @@ public class MergeSort {
         System.out.println(i.length);
         System.out.println(Arrays.toString(i));
         MergeSort m = new MergeSort();
-        System.out.println(Arrays.toString(m.mergeSort(i)));
+        m.mergeSort(i);
+        System.out.println(Arrays.toString(i));
     }
